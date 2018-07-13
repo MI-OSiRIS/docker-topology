@@ -31,3 +31,4 @@ ADD osiris-sdn-app.conf /etc/ryu/
 ENV DEBUG DEBUG
 ADD run.sh .
 CMD bash ./run.sh
+
