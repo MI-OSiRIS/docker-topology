@@ -2,8 +2,10 @@ FROM python:3.6-stretch
 
 MAINTAINER OpenLab <ezkissel@indiana.edu>
 
+RUN echo 'deb http://ftp.de.debian.org/debian jessie main non-free' >> /etc/apt/sources.list 
+
 RUN apt-get update
-RUN apt-get -y install sudo cmake gcc libaprutil1-dev vim libapr1-dev mongodb lldpd python-setuptools python-pip supervisor 
+RUN apt-get -y install sudo cmake gcc libaprutil1-dev vim libapr1-dev mongodb lldpd python-setuptools python-pip libsnmp-dev supervisor snmp snmpd snmp-mibs-downloader 
 
 RUN export uid=1000 gid=1000 && \
     mkdir -p /home/osiris && \
@@ -25,10 +27,16 @@ RUN git clone -b master https://github.com/gskip17/topology.git
 ADD build.sh .
 RUN bash ./build.sh
 
+
+CMD download-mibs
+ADD snmp.conf /etc/snmp/snmp.conf
+ADD snmpd.conf /etc/snmp/snmpd.conf
 ADD ryu.conf /etc/supervisor/conf.d/
 ADD osiris-sdn-app.conf /etc/ryu/
 
 ENV DEBUG DEBUG
 ADD run.sh .
 CMD bash ./run.sh
+
+
 

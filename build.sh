@@ -2,7 +2,7 @@
 
 echo "Building Ryu Container..."
 
-sudo pip3 install ryu
+sudo pip3 install ryu easysnmp
 
 echo "Setting up UNIS-RT..."
 cd lace

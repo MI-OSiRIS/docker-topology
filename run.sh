@@ -5,11 +5,6 @@ HOSTNAME=`hostname`
 git -C unisrt pull
 git -C topology pull
 
-
-
-
-
-
 sudo mkdir /data
 sudo mkdir /data/db
 sudo mkdir /data/db/log
@@ -19,7 +14,7 @@ sudo service supervisord start
 sudo -E /etc/init.d/supervisor start
 sudo service supervisor restart
 sudo lldpd -i eth0
-
+sudo service snmpd restart 
 echo "SDN Controller IP : `hostname --ip-address`"
 
 
