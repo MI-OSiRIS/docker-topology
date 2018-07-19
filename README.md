@@ -8,7 +8,7 @@ The configuration of the service is controlled by a configuration file
 that should be exposed as a Docker volume.  The service looks for
 configuration in the `/etc/ryu` directory.
 
-> docker run -ti -v <src dir>:/etc/ryu <name>
+`> docker run -ti -v <src dir>:/etc/ryu <name>`
 
 On the host, maintain the following configuration file in `src dir`:
 
