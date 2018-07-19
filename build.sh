@@ -12,8 +12,7 @@ cd unisrt
 sudo python3 setup.py develop
 cd -
 
-echo "Setting up RYU..."
+echo "Setting up RYU Topology Application..."
 cd topology/ryu
 sudo python3 setup.py develop
 cd -
-

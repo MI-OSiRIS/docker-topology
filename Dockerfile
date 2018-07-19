@@ -30,12 +30,10 @@ RUN bash ./build.sh
 CMD download-mibs
 ADD snmp.conf /etc/snmp/snmp.conf
 ADD snmpd.conf /etc/snmp/snmpd.conf
-ADD ryu.conf /etc/supervisor/conf.d/
-ADD osiris-sdn-app.conf /etc/ryu/
+ADD ryu-topo.conf /etc/supervisor/conf.d/
 
 ENV DEBUG DEBUG
 ADD run.sh .
 CMD bash ./run.sh
-
 
 
